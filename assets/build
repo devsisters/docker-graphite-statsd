@@ -76,7 +76,9 @@ python ./setup.py install
 
 # configure carbon ------------------------------------------------------------
 cp /opt/graphite/conf/carbon.conf.example /opt/graphite/conf/carbon.conf
-cp /opt/graphite/conf/storage-schemas.conf.example /opt/graphite/conf/storage-schemas.conf
+cp /opt/graphite/conf/graphTemplates.conf.example /opt/graphite/conf/graphTemplates.conf
+cp /opt/hopsoft/graphite-statsd/storage-aggregation.conf /opt/graphite/conf/storage-aggregation.conf
+cp /opt/hopsoft/graphite-statsd/storage-schemas.conf /opt/graphite/conf/storage-schemas.conf
 
 
 
@@ -122,7 +124,10 @@ cat << EOF > /opt/statsd/config.js
   graphiteHost: "127.0.0.1",
   graphitePort: 2003,
   port: 8125,
-  flushInterval: 10000
+  flushInterval: 10000,
+  graphite: {
+    legacyNamespace: false
+  }
 }
 EOF
 
