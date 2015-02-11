@@ -37,6 +37,30 @@ This starts a Docker container named: **graphite**
 | DOCKER ASSIGNED   | /opt/graphite/storage |
 | DOCKER ASSIGNED   | /opt/graphite/conf    |
 
+## Build
+
+1. Install Boot2Docker (with Docker)
+2. Run ./bin/build
+3. Done!
+
+
+## Run
+
+1. Check if Boot2Docker is running.
+2. Run ./bin/start
+3. Done!
+
+
+## Deploy
+
+1. Push built image to docker registry
+```sh
+docker push docker.devscake.com/graphite-statsd
+```
+2. Go to graphite server, run chef-client
+* Be aware that statsd will temporarily turned off, you MUST ask others to check the status
+
+
 ## Start Using Graphite & Statsd
 
 ### Send Some Stats
